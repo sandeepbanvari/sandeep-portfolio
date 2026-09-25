@@ -120,8 +120,8 @@ Sandeep_Portfolio/
 
 ### 💻 Projects Showcase
 * **Eco Track AI** — Smart sustainability & carbon emission tracking platform (ReactJS, Python, MySQL, REST API)
+* **Shop-Stack** — Modern e-commerce web application with live catalog, Redux cart, flash drops & Vercel deployment (React 19, Vite, Redux Toolkit, React Router, Framer Motion)
 * **Villa Project** — Luxury real estate portal with booking flow (HTML5, CSS3, JavaScript)
-* **Employee Management System** — Comprehensive CRUD management with OOP architecture (Python, MySQL)
 * **Tech Shop** — Audio products e-commerce store with cart & catalog (HTML5, CSS3, JavaScript)
 * **Random Quote Generator** — Real-time quote fetcher via external REST API
 

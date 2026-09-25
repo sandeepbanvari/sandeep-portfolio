@@ -1,4 +1,4 @@
-export const projectCategories = ["All", "Full Stack", "Frontend", "Python & DB"];
+export const projectCategories = ["All", "Full Stack", "Frontend"];
 
 export const projects = [
   {
@@ -23,6 +23,26 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Shop-Stack",
+    subtitle: "Modern E-Commerce Web Application",
+    category: "Frontend",
+    description:
+      "Full-featured modern e-commerce web application built with ReactJS, Vite, and Redux Toolkit. Features live product discovery, persistent global cart state, flash drops, coupon vouchers, interactive user notifications, and smooth animated page transitions.",
+    techStack: ["ReactJS", "Vite", "Redux Toolkit", "React Router", "Framer Motion", "Axios"],
+    features: [
+      "Live product catalog with category filters & dynamic search (DummyJSON API)",
+      "Persistent shopping cart powered by Redux Toolkit & LocalStorage sync",
+      "Flash drops & daily deals schedule with interactive reminder alerts",
+      "In-depth product details with image gallery, specs & customer reviews",
+      "1-Click clipboard voucher copy & real-time toast notifications",
+      "Client-side authenticated user workflows & admin user management"
+    ],
+    github: "https://github.com/sandeepbanvari/Shop-Stack",
+    liveDemo: "https://shop-stack-rho.vercel.app/",
+    previewBadge: "E-Commerce App"
+  },
+  {
+    id: 3,
     title: "Villa Project",
     subtitle: "Luxury Real Estate & Villa Platform",
     category: "Frontend",
@@ -40,28 +60,6 @@ export const projects = [
     github: "https://github.com/sandeepbanvari/Villa_Project",
     liveDemo: "https://sandeepbanvari.github.io/Villa_Project/",
     previewBadge: "Real Estate UI"
-  },
-  {
-    id: 3,
-    title: "Employee Management System",
-    subtitle: "Employee Record Management",
-    category: "Python & DB",
-    description:
-      "Comprehensive system built with Python and MySQL implementing OOP principles for structured employee records and validation.",
-    techStack: ["Python", "MySQL", "OOP", "Input Validation", "Exception Handling"],
-    features: [
-      "Add employee",
-      "View employee",
-      "Search employee",
-      "Update employee",
-      "Delete employee",
-      "Input validation",
-      "Exception handling",
-      "MySQL integration"
-    ],
-    github: "https://github.com/sandeepbanvari",
-    liveDemo: null,
-    previewBadge: "Python & DB"
   },
   {
     id: 4,

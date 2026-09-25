@@ -14,7 +14,8 @@ export default function Projects() {
     { bg: '#0F766E', textColor: '#FFFFFF', iconColor: '#0F766E' },
     { bg: '#115E59', textColor: '#FFFFFF', iconColor: '#115E59' },
     { bg: '#0D9488', textColor: '#FFFFFF', iconColor: '#0D9488' },
-    { bg: '#0F766E', textColor: '#FFFFFF', iconColor: '#0F766E' },
+    { bg: '#047857', textColor: '#FFFFFF', iconColor: '#047857' },
+    { bg: '#0E7490', textColor: '#FFFFFF', iconColor: '#0E7490' },
     { bg: '#14B8A6', textColor: '#FFFFFF', iconColor: '#14B8A6' },
   ];
 
@@ -82,6 +83,27 @@ export default function Projects() {
                     position: 'relative',
                   }}
                 >
+                  {project.previewBadge && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '12px',
+                        right: '12px',
+                        fontSize: '0.68rem',
+                        fontWeight: 700,
+                        backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                        backdropFilter: 'blur(4px)',
+                        color: '#FFFFFF',
+                        padding: '3px 9px',
+                        borderRadius: 'var(--radius-pill)',
+                        border: '1px solid rgba(255, 255, 255, 0.35)',
+                        letterSpacing: '0.02em',
+                      }}
+                    >
+                      {project.previewBadge}
+                    </span>
+                  )}
+
                   <span
                     style={{
                       fontFamily: 'var(--font-heading)',
@@ -301,21 +323,38 @@ export default function Projects() {
               <X size={18} />
             </button>
 
-            <span
-              style={{
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                color: '#047857',
-                backgroundColor: '#ECFDF5',
-                border: '1px solid #A7F3D0',
-                padding: '4px 10px',
-                borderRadius: 'var(--radius-pill)',
-                display: 'inline-block',
-                marginBottom: '10px',
-              }}
-            >
-              {activeModalProject.category}
-            </span>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap' }}>
+              <span
+                style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#047857',
+                  backgroundColor: '#ECFDF5',
+                  border: '1px solid #A7F3D0',
+                  padding: '4px 10px',
+                  borderRadius: 'var(--radius-pill)',
+                  display: 'inline-block',
+                }}
+              >
+                {activeModalProject.category}
+              </span>
+              {activeModalProject.previewBadge && (
+                <span
+                  style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: '#0F766E',
+                    backgroundColor: '#CCFBF1',
+                    border: '1px solid #99F6E4',
+                    padding: '4px 10px',
+                    borderRadius: 'var(--radius-pill)',
+                    display: 'inline-block',
+                  }}
+                >
+                  {activeModalProject.previewBadge}
+                </span>
+              )}
+            </div>
 
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
               {activeModalProject.title}
