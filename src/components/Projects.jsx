@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { Code2, ArrowRight, X, CheckCircle2, Info, ExternalLink } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
 export default function Projects() {
-  const [showAll, setShowAll] = useState(false);
   const [activeModalProject, setActiveModalProject] = useState(null);
 
-  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const displayedProjects = projects.slice(0, 3);
 
   // Sophisticated Teal & Mint header themes
   const headerThemes = [
@@ -156,7 +156,7 @@ export default function Projects() {
                     <p style={{ fontSize: '0.85rem', color: '#0F766E', fontWeight: 600, marginBottom: '6px' }}>
                       {project.subtitle}
                     </p>
-                    <p style={{ fontSize: '0.875rem', color: '#475569', lineHeight: 1.5, marginBottom: '14px' }}>
+                    <p style={{ fontSize: '0.875rem', color: '#475569', lineHeight: 1.6, marginBottom: '14px', textAlign: 'justify' }}>
                       {project.description}
                     </p>
 
@@ -256,15 +256,22 @@ export default function Projects() {
 
         {/* Bottom Right "More →" Pill Button */}
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <button
-            type="button"
-            onClick={() => setShowAll(!showAll)}
+          <Link
+            to="/projects"
             className="btn-pill btn-pill-primary"
-            style={{ padding: '8px 22px', fontSize: '0.85rem' }}
+            style={{
+              padding: '9px 24px',
+              fontSize: '0.88rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              textDecoration: 'none',
+              cursor: 'pointer',
+            }}
           >
-            <span>{showAll ? 'Show Less' : 'More'}</span>
-            <ArrowRight size={14} />
-          </button>
+            <span>More</span>
+            <ArrowRight size={15} />
+          </Link>
         </div>
       </div>
 
@@ -364,7 +371,7 @@ export default function Projects() {
               {activeModalProject.subtitle}
             </p>
 
-            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px', textAlign: 'justify' }}>
               {activeModalProject.description}
             </p>
 

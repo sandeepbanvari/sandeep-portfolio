@@ -1,9 +1,9 @@
 import React from 'react';
-import { Download, Mail } from 'lucide-react';
+import { Mail, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import profileImg from '../assets/Sandeep_Portfolio.png';
 
-export default function Hero({ onOpenResume }) {
+export default function Hero() {
   const scrollToContact = (e) => {
     e.preventDefault();
     const el = document.getElementById('contact');
@@ -251,10 +251,11 @@ export default function Hero({ onOpenResume }) {
 
           {/* Action Buttons */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '18px', alignItems: 'center' }}>
-            {/* Secondary CTA: Download CV */}
-            <button
-              type="button"
-              onClick={onOpenResume}
+            {/* Secondary CTA: Download CV (Opens PDF in new tab) */}
+            <a
+              href="/Sandeep_Banvari_Python_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="btn-pill"
               style={{
                 border: '1px solid #0F766E',
@@ -266,6 +267,11 @@ export default function Hero({ onOpenResume }) {
                 borderRadius: '9999px',
                 boxShadow: '0 2px 8px rgba(15, 23, 42, 0.05)',
                 transition: 'all 0.25s',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                textDecoration: 'none',
+                cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#F0FDFA';
@@ -276,8 +282,9 @@ export default function Hero({ onOpenResume }) {
                 e.currentTarget.style.color = '#0F766E';
               }}
             >
+              <FileText size={17} />
               <span>Download CV</span>
-            </button>
+            </a>
 
             {/* Primary CTA: Contact */}
             <a
@@ -362,6 +369,7 @@ export default function Hero({ onOpenResume }) {
           }
           .hero-left-panel {
             width: 100% !important;
+            gap: 10px !important;
             padding: 36px 24px !important;
           }
           .hero-center-avatar {
@@ -369,13 +377,13 @@ export default function Hero({ onOpenResume }) {
             left: auto !important;
             top: auto !important;
             transform: none !important;
-            margin: -60px auto 20px !important;
+            margin: 20px auto 10px !important;
             width: 240px !important;
             height: 240px !important;
           }
           .hero-right-panel {
             width: 100% !important;
-            padding: 30px 24px 60px !important;
+            padding: 30px 24px 20px !important;
             text-align: center !important;
             align-items: center !important;
           }

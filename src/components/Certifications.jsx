@@ -1,8 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { certifications } from '../data/certifications';
-import { Award, ShieldCheck } from 'lucide-react';
+import CertificationIcon from './CertificationIcon';
+import { Award, ShieldCheck, ArrowRight, Calendar, Building2 } from 'lucide-react';
 
 export default function Certifications() {
+  // Show only 2 featured certifications on Home page: RINL and Datavalley
+  const displayedCertifications = certifications.filter(
+    (c) => c.issuer.includes('RINL') || c.issuer.includes('Datavalley')
+  );
+
   return (
     <section id="certifications" className="section" style={{ backgroundColor: '#F1F5F9', paddingTop: '64px', paddingBottom: '76px' }}>
       <div className="container">
@@ -18,7 +25,7 @@ export default function Certifications() {
           {/* Left Column: Heading & Narrative */}
           <div>
             <h2 className="section-title-orange" style={{ color: '#0F172A', marginBottom: '18px' }}>
-              Achievements
+              Certifications & Achievements
             </h2>
 
             <p
@@ -29,7 +36,7 @@ export default function Certifications() {
                 marginBottom: '18px',
               }}
             >
-              Certified by premier industrial and software organizations through intensive hands-on development programs.
+              Accredited and certified by premier industrial companies, tech organizations, and state skill development bodies through intensive hands-on development programs.
             </p>
 
             <p
@@ -40,7 +47,7 @@ export default function Certifications() {
                 marginBottom: '28px',
               }}
             >
-              Validated expertise in building responsive single-page interfaces, optimizing database operations with MySQL, and integrating frontend components with Python RESTful microservices.
+              Proven credentials spanning core Python programming, full-stack web engineering, modern React applications, Generative AI tools, and professional aptitude.
             </p>
 
             <div
@@ -58,13 +65,13 @@ export default function Certifications() {
               }}
             >
               <ShieldCheck size={16} />
-              <span>Verified Industry Credentials</span>
+              <span>Verified Industry Credentials ({certifications.length} Total)</span>
             </div>
           </div>
 
-          {/* Right Column: Stacked Cards with Thumbnails on the Right */}
+          {/* Right Column: Featured Cards + More Button */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-            {certifications.map((cert) => (
+            {displayedCertifications.map((cert) => (
               <div
                 key={cert.id}
                 className="theme-card"
@@ -72,29 +79,75 @@ export default function Certifications() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  gap: '20px',
-                  padding: '20px 24px',
+                  gap: '18px',
+                  padding: '20px 22px',
                   borderRadius: 'var(--radius-lg)',
                   backgroundColor: '#FFFFFF',
                   border: '1px solid #E2E8F0',
                   boxShadow: '0 8px 25px rgba(15, 23, 42, 0.06)',
+                  transition: 'transform 0.25s, border-color 0.25s, box-shadow 0.25s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.borderColor = '#99F6E4';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(15, 118, 110, 0.10)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(15, 23, 42, 0.06)';
                 }}
               >
-                {/* Left content info */}
+                {/* Left Icon Badge */}
+                <div
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '12px',
+                    backgroundColor: '#ECFDF5',
+                    border: '1.5px solid #A7F3D0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#0F766E',
+                    flexShrink: 0,
+                  }}
+                >
+                  <CertificationIcon iconType={cert.iconType} size={22} color="#0F766E" />
+                </div>
+
+                {/* Center Content info */}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <span
-                    style={{
-                      fontSize: '0.725rem',
-                      fontWeight: 700,
-                      color: '#0F766E',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.04em',
-                      display: 'block',
-                      marginBottom: '4px',
-                    }}
-                  >
-                    {cert.issuer}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                    <span
+                      style={{
+                        fontSize: '0.725rem',
+                        fontWeight: 700,
+                        color: '#0F766E',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.04em',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                      }}
+                    >
+                      <Building2 size={12} />
+                      <span>{cert.issuer}</span>
+                    </span>
+                    <span style={{ fontSize: '0.7rem', color: '#94A3B8' }}>•</span>
+                    <span
+                      style={{
+                        fontSize: '0.7rem',
+                        color: '#64748B',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '3px',
+                      }}
+                    >
+                      <Calendar size={11} />
+                      <span>{cert.date}</span>
+                    </span>
+                  </div>
 
                   <h3
                     style={{
@@ -103,6 +156,7 @@ export default function Certifications() {
                       fontWeight: 700,
                       color: '#0F172A',
                       marginBottom: '6px',
+                      lineHeight: 1.3,
                     }}
                   >
                     {cert.title}
@@ -113,7 +167,7 @@ export default function Certifications() {
                   </p>
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                    {cert.skillsGained.map((skill) => (
+                    {cert.skillsGained.slice(0, 3).map((skill) => (
                       <span
                         key={skill}
                         style={{
@@ -129,14 +183,27 @@ export default function Certifications() {
                         {skill}
                       </span>
                     ))}
+                    {cert.skillsGained.length > 3 && (
+                      <span
+                        style={{
+                          fontSize: '0.7rem',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          backgroundColor: '#F1F5F9',
+                          color: '#64748B',
+                        }}
+                      >
+                        +{cert.skillsGained.length - 3} more
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 {/* Right thumbnail badge box */}
                 <div
                   style={{
-                    width: '68px',
-                    height: '68px',
+                    width: '64px',
+                    height: '64px',
                     borderRadius: '12px',
                     backgroundColor: '#F0FDFA',
                     border: '1.5px solid #99F6E4',
@@ -149,13 +216,33 @@ export default function Certifications() {
                     boxShadow: '0 4px 12px rgba(15, 118, 110, 0.08)',
                   }}
                 >
-                  <Award size={26} />
-                  <span style={{ fontSize: '0.65rem', fontWeight: 800, marginTop: '2px', color: '#0F766E' }}>
+                  <Award size={24} />
+                  <span style={{ fontSize: '0.625rem', fontWeight: 800, marginTop: '2px', color: '#0F766E' }}>
                     VERIFIED
                   </span>
                 </div>
               </div>
             ))}
+
+            {/* Bottom Right "More →" Pill Button */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '4px' }}>
+              <Link
+                to="/certificates"
+                className="btn-pill btn-pill-primary"
+                style={{
+                  padding: '9px 24px',
+                  fontSize: '0.88rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                <span>More</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MapPin, AtSign, Mail, Send, CheckCircle2, AlertCircle, ArrowUp } from 'lucide-react';
+import { Phone, MapPin, AtSign, Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, XIcon } from './Icons';
 import { ContactIllustration } from './Illustrations';
 
@@ -49,10 +49,6 @@ export default function Contact() {
     )}`;
     window.location.href = mailtoUrl;
     setIsSubmitted(true);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -502,45 +498,6 @@ export default function Contact() {
             <ContactIllustration />
           </div>
         </div>
-
-        {/* Back to top circular button fixed in right down */}
-        <button
-          type="button"
-          onClick={scrollToTop}
-          aria-label="Back to top"
-          style={{
-            position: 'fixed',
-            bottom: '28px',
-            right: '28px',
-            width: '42px',
-            height: '42px',
-            borderRadius: '50%',
-            backgroundColor: '#FFFFFF',
-            border: '1px solid #CBD5E1',
-            color: '#0F766E',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.12)',
-            zIndex: 90,
-            transition: 'transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px) scale(1.08)';
-            e.currentTarget.style.backgroundColor = '#0F766E';
-            e.currentTarget.style.color = '#FFFFFF';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(15, 118, 110, 0.35)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.backgroundColor = '#FFFFFF';
-            e.currentTarget.style.color = '#0F766E';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.12)';
-          }}
-        >
-          <ArrowUp size={22} color="currentColor" strokeWidth={2.6} />
-        </button>
       </div>
     </section>
   );

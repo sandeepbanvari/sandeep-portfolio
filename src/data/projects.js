@@ -7,7 +7,7 @@ export const projects = [
     subtitle: "Smart Sustainability Tracking Platform",
     category: "Full Stack",
     description:
-      "Smart sustainability tracking platform with carbon emission tracking, energy monitoring and REST API functionality.",
+      "Smart sustainability tracking platform built with ReactJS, Python, and MySQL. Features real-time carbon emission tracking, automated industrial energy consumption monitoring, reusable UI components, and integrated RESTful APIs for eco-efficiency analytics.",
     techStack: ["ReactJS", "Python", "MySQL", "REST API", "Git"],
     features: [
       "Carbon emission tracking",
@@ -47,7 +47,7 @@ export const projects = [
     subtitle: "Luxury Real Estate & Villa Platform",
     category: "Frontend",
     description:
-      "Modern luxury real estate landing platform built with responsive styling, property catalog, visit scheduler, Flexbox, and CSS Grid.",
+      "Modern luxury real estate web platform crafted with HTML5, CSS3, and JavaScript. Features interactive property catalogs, dynamic villa showcase sliders, visit scheduling workflows, and pixel-perfect mobile-first layouts powered by Flexbox and CSS Grid.",
     techStack: ["HTML5", "CSS3", "JavaScript", "FontAwesome", "GitHub Pages"],
     features: [
       "Responsive luxury villa UI",
@@ -67,7 +67,7 @@ export const projects = [
     subtitle: "Audio Products E-Commerce Platform",
     category: "Frontend",
     description:
-      "E-commerce platform for audio products with user authentication, product search and filtering, shopping cart functionality, and a modern UI/UX.",
+      "Responsive audio gear e-commerce platform built with HTML5, CSS3, and JavaScript. Features secure client authentication, dynamic product catalog search and category filtering, persistent shopping cart management, and seamless multi-device checkout flows.",
     techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Git"],
     features: [
       "User authentication",
@@ -87,7 +87,7 @@ export const projects = [
     subtitle: "Web Application",
     category: "Frontend",
     description:
-      "Dynamic interactive web application that retrieves and displays inspirational quotes via REST API integration with real-time UI updates.",
+      "Dynamic interactive web application built with vanilla JavaScript, HTML5, and CSS3. Features asynchronous REST API integration for real-time inspirational quotes, smooth DOM manipulation, 1-click clipboard copying, and responsive gradient UI styling.",
     techStack: ["HTML5", "CSS3", "JavaScript", "Fetch API", "DOM API"],
     features: [
       "REST API integration",

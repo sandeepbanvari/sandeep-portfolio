@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Download } from 'lucide-react';
 
 const navLinks = [
@@ -13,15 +14,28 @@ const navLinks = [
   { name: 'Contacts', href: '#contact' },
 ];
 
-export default function Navbar({ onOpenResume }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setIsOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 120);
+    } else {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -138,12 +152,11 @@ export default function Navbar({ onOpenResume }) {
             </nav>
           </div>
 
-          <button
-            type="button"
-            onClick={() => {
-              setIsOpen(false);
-              onOpenResume();
-            }}
+          <a
+            href="/Sandeep_Banvari_Python_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setIsOpen(false)}
             className="btn-pill"
             style={{
               width: '100%',
@@ -155,13 +168,19 @@ export default function Navbar({ onOpenResume }) {
               fontWeight: 600,
               boxShadow: '0 4px 14px rgba(15, 118, 110, 0.25)',
               transition: 'background-color 0.2s',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              textDecoration: 'none',
+              cursor: 'pointer',
             }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#115E59')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#0F766E')}
           >
             <Download size={16} />
             <span>Download Resume</span>
-          </button>
+          </a>
         </div>
       )}
 
